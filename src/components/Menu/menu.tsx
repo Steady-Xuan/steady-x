@@ -1,5 +1,6 @@
 import React, { createContext, useState } from "react";
 import classNames from "classnames";
+import { MenuTypeProps as itemType } from "./MenuItem/menuitem";
 
 export enum modeType {
   vertical = "vertical",
@@ -43,10 +44,26 @@ const Menu: React.FC<MenuTypeProps> = (props) => {
     "menu-horizontal": mode !== "vertical",
   });
 
+  const renderChildren = () => {
+    return React.Children.map(children, (child, idx) => {
+      const childElement = child as React.FunctionComponentElement<itemType>;
+      const { displayName } = childElement.type;
+
+      if (
+        displayName?.length &&
+        (displayName === "MentItem" || displayName === "SubMenuItem")
+      ) {
+        return React.cloneElement(childElement, { index: idx });
+      } else {
+        console.error("Menu not use other element only use MentItem");
+      }
+    });
+  };
+
   return (
     <ul style={style} className={classes}>
       <MenuContext.Provider value={contextValue}>
-        {children}
+        {renderChildren()}
       </MenuContext.Provider>
     </ul>
   );
