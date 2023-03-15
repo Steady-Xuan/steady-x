@@ -8,7 +8,11 @@ import "./styles/index.scss";
 function App() {
   return (
     <div className="App">
-      <Menu defaultIndex={0} mode={modeType.vertical}>
+      <Menu
+        defaultIndex="0"
+        mode={modeType.horizontal}
+        defaultOpenSubMenus={["3"]}
+      >
         <MentItem>click 01</MentItem>
         <MentItem>click 02</MentItem>
         <MentItem>click 03</MentItem>
@@ -23,7 +27,6 @@ function App() {
         button
       </Button>
       <Button
-        autoFocus
         btnType={ButtonType.Primary}
         onClick={() => {
           alert(1);

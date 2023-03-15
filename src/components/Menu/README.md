@@ -1,3 +1,9 @@
 ### 注意事项
   - React.Children.map()用于渲染出指定元素的类型
   - React.cloneElement()用于动态生成元素时添加动态属性或者静态属性
+  - subMenu
+### 设计思路
+  - 首先是先没有下拉选择的Menu,提供默认选择的defaultIndex属性，mode是横向还是纵向
+  - 考虑有下拉的需要提供defaultOpenSubMenus的里面是['需要展开的父级index']
+  - React+Ts中事件对象e的类型未React.MouseEvent
+  - 在Menu组件中使用context来统一管理选择的index,传入的回调方法,s是否横纵向mode,defaultOpenSubMenus['需要展开的父级index']

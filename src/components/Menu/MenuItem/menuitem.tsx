@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { MenuContext } from "../menu";
 
 export interface MenuTypeProps {
-  index?: number;
+  index?: string;
   className?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
@@ -14,7 +14,7 @@ const MentItem: React.FC<MenuTypeProps> = (props) => {
   const { className, style, children, index, disabled } = props;
   const context = useContext(MenuContext);
   const handleClick = () => {
-    if (context.onSelect && !disabled && typeof index === "number") {
+    if (context.onSelect && !disabled && typeof index === "string") {
       context.onSelect(index);
     } else {
       alert("失败了");
