@@ -1,21 +1,72 @@
-import React from "react";
+import React, {
+  FC,
+  ReactElement,
+  InputHTMLAttributes,
+  ChangeEvent,
+} from "react";
 import classNames from "classnames";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import Icon from "../Icon";
+type InputSize = "lg" | "sm";
 
-type sizeType = "lg" | "small";
-
-interface inputPropsType
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> {
-  size?: sizeType;
+export interface InputProps
+  extends Omit<InputHTMLAttributes<HTMLElement>, "size"> {
+  /**
+   * 是否禁用 Input
+   */
   disabled?: boolean;
-  className?: string;
+  /**
+   * 设置input大小，支持lg/sm
+   */
+  size?: InputSize;
+  /**
+   * 添加图标，在右侧悬浮添加一个图标，用于提示
+   */
+  icon?: IconProp;
+  prepend?: string | ReactElement;
+  append?: string | ReactElement;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Input = (props: inputPropsType) => {
-  const { size, disabled, className } = props;
-  const classes = classNames();
+export const Input: FC<InputProps> = (props) => {
+  const { disabled, size, icon, prepend, append, style, ...restProps } = props;
+
+  const cnames = classNames("viking-input-wrapper", {
+    [`input-size-${size}`]: size,
+    "is-disabled": disabled,
+    "input-group": prepend || append,
+    "input-group-append": !!append,
+    "input-group-prepend": !!prepend,
+  });
+
+  const fixControlledValue = (value: any) => {
+    if (typeof value === "undefined" || value === null) {
+      return "";
+    }
+    return value;
+  };
+
+  if ("value" in props) {
+    delete restProps.defaultValue;
+    restProps.value = fixControlledValue(props.value);
+  }
+
   return (
-    <div>
-      <input type="text" className={classes} />
+    <div className={cnames} style={style}>
+      {prepend && <div className="viking-input-group-prepend">{prepend}</div>}
+      {icon && (
+        <div className="icon-wrapper">
+          <Icon icon={icon} title={`title-${icon}`}></Icon>
+        </div>
+      )}
+
+      <input
+        className="viking-input-inner"
+        disabled={disabled}
+        {...restProps}
+      />
+
+      {append && <div className="viking-input-group-append"> {append} </div>}
     </div>
   );
 };
