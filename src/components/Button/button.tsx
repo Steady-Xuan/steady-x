@@ -15,6 +15,9 @@ export enum ButtonType {
 interface BaseButtonProps {
   className?: string;
   disabled?: boolean;
+  /**
+   * 大小
+   */
   size?: ButtonSize;
   btnType: ButtonType;
   children: React.ReactNode;

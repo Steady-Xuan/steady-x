@@ -40,7 +40,6 @@ const Menu: React.FC<MenuTypeProps> = (props) => {
   const [idx, setIdx] = useState(defaultIndex);
   const handleClick = (index: string) => {
     setIdx(index);
-    alert(index);
     if (onSelect) {
       onSelect(index);
     }

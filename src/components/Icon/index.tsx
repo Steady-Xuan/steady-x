@@ -27,3 +27,5 @@ const Icon: React.FC<IconProps> = (props) => {
   });
   return <FontAwesomeIcon className={classes} {...restProps}></FontAwesomeIcon>;
 };
+
+export default Icon;
