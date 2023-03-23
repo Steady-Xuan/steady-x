@@ -35,7 +35,8 @@
     "@types/react-transition-group": "^4.2.3",
     "@types/storybook__addon-info": "^5.2.1",
     "cross-env": "^7.0.0",
-    "husky": "^4.2.1",
+    "husky": "^4.3.8",
+    "lint-staged": "^13.2.0",
     "node-sass": "^4.13.0",
     "react": "^16.12.0",
     "react-docgen-typescript-loader": "^3.6.0",
@@ -66,7 +67,19 @@
     "clean": "rimraf ./dist",
     "build-ts": "tsc -p tsconfig.build.json",
     "build-css": "node-sass ./src/styles/index.scss ./dist/index.css",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "lint": "eslint --ext .js.ts.tsx",
+    "lint-staged": "lint-staged"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,ts,tsx}": [
+      "eslint --fix"
+    ]
   },
   "eslintConfig": {
     "extends": [
