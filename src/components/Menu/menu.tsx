@@ -7,7 +7,7 @@ export enum modeType {
   horizontal = "horizontal",
 }
 
-interface MenuTypeProps {
+export interface MenuTypeProps {
   defaultIndex: string;
   mode?: modeType;
   onSelect?: (index: string) => void;

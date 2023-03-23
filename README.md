@@ -45,4 +45,13 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-#  
+# 项目介绍
+
+- npm 发布时 typeScript 版本不是最新的导致打包一直失败
+- upload 组件
+- input 组件
+- button 组件
+- autoComplete 组件
+- Menu 组件
+- 使用npm publish进行发布
+- 将会持续更新

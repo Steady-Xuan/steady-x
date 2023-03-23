@@ -132,7 +132,6 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
         }}
       >
         <ul className="viking-suggestion-list">
-            
           {loading && (
             <div className="suggesions-loading-icon">
               <Icon icon="spinner" spin></Icon>
@@ -173,3 +172,5 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
     </div>
   );
 };
+
+export default AutoComplete;
