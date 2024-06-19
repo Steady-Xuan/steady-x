@@ -35,7 +35,7 @@
     "@types/react-transition-group": "^4.2.3",
     "@types/storybook__addon-info": "^5.2.1",
     "cross-env": "^7.0.0",
-    "husky": "^4.3.8",
+    "eslint-plugin-react-app": "^6.2.2",
     "lint-staged": "^13.2.0",
     "node-sass": "^4.13.0",
     "react": "^16.12.0",
@@ -85,7 +85,7 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "plugin:react-app/jest"
     ]
   },
   "browserslist": {
