@@ -1,0 +1,32 @@
+.cicrle-loading{
+  width: 20px;
+  height: 20px;
+  border-top: 2px dashed $blue;
+  border-left: 2px dashed $blue;
+  border-radius: 50%;
+  border-collapse: collapse;
+  border-spacing:20px;
+  animation: myAnimation 2s linear infinite;
+  // position: relative;
+}
+
+// .cicrle-loading-other{
+//   width: 20px;
+//   height: 20px;
+//   // border: 2px solid $blue;
+//   border-radius: 50%;
+//   background-color: #fff;
+//   position: absolute;
+//   top: 66px;
+//   z-index: 100;
+// }
+
+@keyframes myAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+  
+}

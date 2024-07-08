@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two-side Border Example</title>
+    <style>
+        .box {
+            position: relative;
+            width: 200px;
+            height: 100px;
+            background-color: #fff;
+            overflow: hidden;
+            /* 防止伪元素溢出 */
+        }
+
+        .box::before,
+        .box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 200%;
+            /* 伪元素宽度是原始宽度的2倍 */
+            height: 100%;
+            border-top: 2px solid black;
+            /* 边框样式 */
+            z-index: 1;
+            background-color: red;
+            /* 背景色需要与父元素一致 */
+        }
+
+        .box::before {
+            left: -100%;
+            /* 向左偏移100%宽度 */
+        }
+
+        .box::after {
+            right: -100%;
+            /* 向右偏移100%宽度 */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box"></div>
+
+</body>
+
+</html>

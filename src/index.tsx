@@ -9,4 +9,5 @@ export { default as Input } from "./components/Input/input";
 export { default as Progress } from "./components/Progress/progress";
 export { default as Transition } from "./components/Transition/transition";
 export { default as Upload } from "./components/Upload/upload";
+export { default as Loading } from "./components/Loading/loading";
 export { default as InfiniteScrolling } from "./components/InfiniteScrolling/InfiniteScrolling";
